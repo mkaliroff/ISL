@@ -1,0 +1,44 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MVC5_proj.Controllers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MVC5_proj.Controllers.Tests
+{
+    [TestClass()]
+    public class UserControllerTests
+    {
+        [TestMethod()]
+        public void IndexTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void SendTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void SendMTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void ShowDataTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void RequestTest()
+        {
+            Assert.Fail();
+        }
+    }
+}
