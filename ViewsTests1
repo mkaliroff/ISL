@@ -1,0 +1,87 @@
+using MVC5_proj.Controllers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace MVC5_proj.Controllers.Tests
+{
+    [TestClass()]
+    public class HomeControllerTests
+    {
+        [TestMethod()]
+        public void IndexTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.Index() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+
+        [TestMethod()]
+        public void ShowHomePageTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.ShowHomePage() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+
+        [TestMethod()]
+        public void ShowContactTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.ShowContact() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+
+        [TestMethod()]
+        public void ShowAboutTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.ShowAbout() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result); 
+
+        }
+
+        [TestMethod()]
+        public void FAQTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.FAQ() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+
+        [TestMethod()]
+        public void ShowITTest()
+        {
+            //Arange
+            var controller = new HomeController();
+            //Act
+            ViewResult result = controller.ShowIT() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+    }
+}
