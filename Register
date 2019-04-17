@@ -14,6 +14,7 @@
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
+
 <style>
     body {
         //background-image: url("http://www.hdwallpaperslife.com/wp-content/uploads/2018/01/batman_arkham_city_joker_smile_suit_flower_fan_art_black_and_white_19699_2560x1600.jpg");
