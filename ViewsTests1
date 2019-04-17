@@ -84,5 +84,38 @@ namespace MVC5_proj.Controllers.Tests
             Assert.IsNotNull(result);
 
         }
+        [TestMethod]
+        public void Register()
+        {
+            //Arange
+            HomeController controller = new HomeController();
+            //Act
+            ViewResult result = controller.Register() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+        [TestMethod]
+        public void Login()
+        {
+            //Arange
+            HomeController controller = new HomeController();
+            //Act
+            ViewResult result = controller.Login() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
+        [TestMethod]
+        public void MyProfile()
+        {
+            //Arange
+            HomeController controller = new HomeController();
+            //Act
+            ViewResult result = controller.MyProfile() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
+
+        }
     }
 }
