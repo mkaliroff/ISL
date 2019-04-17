@@ -7,28 +7,29 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
+
 namespace MVC5_proj.Controllers.Tests
 {
     [TestClass]
     public class HomeControllerTests
     {
         [TestMethod]
-        public void IndexTest()
+        public void IndexViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.Index() as ViewResult;
             //Assert
             Assert.IsNotNull(result);
-
         }
 
         [TestMethod]
-        public void ShowHomePageTest()
+        public void ShowHomePageViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.ShowHomePage() as ViewResult;
             //Assert
@@ -37,10 +38,10 @@ namespace MVC5_proj.Controllers.Tests
         }
 
         [TestMethod]
-        public void ShowContactTest()
+        public void ShowContactViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.ShowContact() as ViewResult;
             //Assert
@@ -49,10 +50,10 @@ namespace MVC5_proj.Controllers.Tests
         }
 
         [TestMethod]
-        public void ShowAboutTest()
+        public void ShowAboutViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.ShowAbout() as ViewResult;
             //Assert
@@ -61,22 +62,22 @@ namespace MVC5_proj.Controllers.Tests
         }
 
         [TestMethod]
-        public void FAQTest()
+        public void FAQViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.FAQ() as ViewResult;
             //Assert
             Assert.IsNotNull(result);
-
+            
         }
 
         [TestMethod]
-        public void ShowITTest()
+        public void ShowITViewTest()
         {
             //Arange
-            var controller = new HomeController();
+            HomeController controller = new HomeController();
             //Act
             ViewResult result = controller.ShowIT() as ViewResult;
             //Assert
