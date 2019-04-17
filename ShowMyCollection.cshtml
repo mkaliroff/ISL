@@ -12,7 +12,7 @@
     UserDal dal = new UserDal();
     List<Language> objlan = dal.languages.ToList<Language>();
 }
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <br /><br /><br /><br />
 <h1>My Collection</h1>
 <form id="contact" action="/User/Share" method="post">
@@ -51,16 +51,28 @@
 <table class="table table-hover">
     <tr>
         <th>Word</th>
-        <th>Share Via Email</th>
+        <th>
+            Email <span class="glyphicon glyphicon-envelope"></span>
+        </th>
+        <th>
+            WhatApp <i class="fa fa-whatsapp" style="font-size:15px"></i>
+        </th>
+        <th>
+            Instgram <i class="fa fa-twitter" style="font-size:15px"></i>
+        </th>
+        <th>Twitter <i class="fa fa-instagram" style="font-size:15px"></i></th>
+
     </tr>
     <tbody>
         @foreach (var row in objlan)
         {
-            <tr>
-                <td><a href="@row.link">@row.word</a></td>
-                <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Share</a></td>
-
-            </tr>
+        <tr>
+            <td><a href="@row.link">@row.word</a></td>
+            <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email it</a></td>
+            <td><a href="https://web.whatsapp.com/">Text it</a></td>
+            <td><a href="https://www.instagram.com/?hl=en">Share it</a></td>
+            <td><a href="https://mobile.twitter.com/i/guest">Twitt it</a></td>
+        </tr>
         }
     </tbody>
 </table>
