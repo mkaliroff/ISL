@@ -9,10 +9,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MVC5_proj.Controllers.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class HomeControllerTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void IndexTest()
         {
             //Arange
@@ -24,7 +24,7 @@ namespace MVC5_proj.Controllers.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ShowHomePageTest()
         {
             //Arange
@@ -36,7 +36,7 @@ namespace MVC5_proj.Controllers.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ShowContactTest()
         {
             //Arange
@@ -48,7 +48,7 @@ namespace MVC5_proj.Controllers.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ShowAboutTest()
         {
             //Arange
@@ -60,7 +60,7 @@ namespace MVC5_proj.Controllers.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void FAQTest()
         {
             //Arange
@@ -72,7 +72,7 @@ namespace MVC5_proj.Controllers.Tests
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ShowITTest()
         {
             //Arange
