@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ShowMyTestDB";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MVC5_proj.ModelView.UserViewModel
+@using MVC5_proj.Models;
+
+<br />
+<h2>DataBase Info:</h2>
+<br />
+<body>
+    <div>
+        <span style="color:blue">Current IT:</span>
+        <br />
+        <table class="table table-hover">
+            <tr>
+                <td>ID:</td>
+                <td>Request:</td>
+            </tr>
+            @foreach (IT It in Model.its)
+            {
+                <tr>
+                    <td>@It.ID</td>
+                    <td>@It.Message</td>
+                </tr>
+            }
+        </table>
+        <span style="color:blue">Current Language:</span>
+        <br />
+        <table class="table table-hover">
+            <tr>
+                <td>Word:</td>
+                <td>Link:</td>
+            </tr>
+            @foreach (Language Lan in Model.languages)
+            {
+                <tr>
+                    <td>@Lan.word</td>
+                    <td>@Lan.link</td>
+                </tr>
+            }
+        </table>
+        <span style="color:blue">Current Contacts:</span>
+        <table class="table table-hover">
+            <tr>
+                <td>ID:</td>
+                <td>Contact:</td>
+            </tr>
+            @foreach (Contact Con in Model.contacts)
+            {
+                <tr>
+                    <td>@Con.ID</td>
+                    <td>@Con.Message</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
