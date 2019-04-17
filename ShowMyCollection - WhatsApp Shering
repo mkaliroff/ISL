@@ -1,0 +1,75 @@
+@using MVC5_proj.Dal;
+@using MVC5_proj.Models;
+@using System.Collections.Generic;
+@using System.Linq;
+
+@{
+    ViewBag.Title = "ShowMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    UserDal dal = new UserDal();
+    List<Language> objlan = dal.languages.ToList<Language>();
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br /><br /><br /><br />
+<h1>My Collection</h1>
+<form id="contact" action="/User/Share" method="post">
+    <div class="row">
+        <div class="col-xs-3">
+            <fieldset>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="ID" name="word" class="form-control input-lg" placeholder="Enter Word" required>
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="text" name="link" class="form-control input-lg" placeholder="Enter Link" required>
+                        <span class="passwordIcon input-group-addon"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                <input id="SubmitDescrip" type="submit" value="Send" />
+            </div>
+            <br />
+            <span class="label label-success" style="font-size:large;">@TempData["yes"]</span>
+            <span class="label label-danger" style="font-size:large;">@TempData["no"]</span>
+        </div>
+    </div>
+</form>
+
+<h2><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Click here to email your collection</a></h2>
+
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Word</th>
+        <th>
+            Email <span class="glyphicon glyphicon-envelope"></span>
+        </th>
+        <th>
+            WhatApp <i class="fa fa-whatsapp" style="font-size:15px"></i>
+        </th>
+
+    </tr>
+    <tbody>
+        @foreach (var row in objlan)
+        {
+        <tr>
+            <td><a href="@row.link">@row.word</a></td>
+            <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email it</a></td>
+            <td><a href="https://web.whatsapp.com/">Text it</a></td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br /><br /><br /><br />
