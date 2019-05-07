@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MVC5_proj.ModelView.UserViewModel
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<style>
+    body {
+        //background-image: url("http://www.hdwallpaperslife.com/wp-content/uploads/2018/01/batman_arkham_city_joker_smile_suit_flower_fan_art_black_and_white_19699_2560x1600.jpg");
+    }
+
+    .module {
+        //background-color: rgba(192,192,192,0.4);
+        font-weight: bold;
+    }
+</style>
+<br /><br />
+<form id="Register" action="/User/AddUser" method="post">
+    <div class="row">
+        <div class="col-xs-3">
+            <fieldset>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="number" id="ID" name="ID" class="form-control input-lg" placeholder="Enter ID">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" id="password" name="Password" class="form-control input-lg" placeholder="Enter Password">
+                        <span class="passwordIcon input-group-addon"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="FirstName" name="FirstName" class="form-control input-lg" placeholder="Enter First Name">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="LastName" name="LastName" class="form-control input-lg" placeholder="Enter Last Name">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="Email" name="Email" class="form-control input-lg" placeholder="Enter Email">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                <input id="Regi" type="submit" value="Register" />
+            </div>
+            <span class="label label-danger">@TempData["yes"]</span>
+        </div>
+    </div>
+</form>
+
+
