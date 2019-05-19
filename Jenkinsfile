@@ -1,29 +1,32 @@
 pipeline {
     //Use the following docker image to run your dotnet app.
-    agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2' } }
-    environment {ASPNETCORE_ENVIRONMENT = 'Production'} 
+    agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2-alpine' } }
+    environment {HOME = '/tmp'} 
+ 
     stages {
     // Get some code from a GitHub repository
     stage('Git') {
       steps{
-          git 'https://github.com/mkaliroff/ISL.git'
+          git 'https://github.com/shimonemu/Delivery-Site.git'
       }
    }
     stage('Dotnet Restore'){
         steps{
-        sh "dotnet restore"
+        //sh "restore nugets C:/Program Files (x86)/Jenkins/tools/nuget/NuGet.exe"
+        sh "dotnet restore DeliverySite/DeliverySite/DeliverySite.csproj"
         }
     }
     
-   stage('Build'){
+    stage('Build'){
           steps{
-               sh "dotnet build"
-               }
+              sh "dotnet build DeliverySite/DeliverySite/DeliverySite.csproj"
+           }
     }
+    
     stage('Run Tests'){
           steps{
-               sh "dotnet test --logger "trx;LogFileName=HomeControllerTests.trx""
-                
+               sh "dotnet test DeliverySite/DeliverySite.sln"
           }
     }
+}
 }
