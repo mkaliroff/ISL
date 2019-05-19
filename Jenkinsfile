@@ -27,11 +27,6 @@ pipeline {
           }
     }
     }
-  post {
-    always {
-      step ([$class: 'MSTestPublisher', testResultsFile:"**/TestResults/UnitTests.trx", failOnError: true, keepLongStdio: true])
-    }
-  }
   tools {
     msbuild '.NET Core 2.2.103'
   }
