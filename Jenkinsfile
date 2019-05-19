@@ -6,7 +6,7 @@ pipeline {
     // Get some code from a GitHub repository
     stage('Git') {
       steps{
-          git 'https://github.com/mkaliroff/oldreponiul.git'
+          git 'https://github.com/mkaliroff/ISL.git'
       }
    }
     stage('Dotnet Restore'){
