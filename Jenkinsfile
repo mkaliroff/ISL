@@ -17,6 +17,7 @@ pipeline {
     
    stage('Build'){
           steps{
+              echo "First Build"
                sh "dotnet build"
                }
     }
