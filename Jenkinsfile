@@ -26,11 +26,4 @@ pipeline {
                 
           }
     }
-    }
-  tools {
-    msbuild '.NET Core 2.2.103'
-  }
-  environment {
-    ASPNETCORE_ENVIRONMENT = 'Production'
-  }
 }
