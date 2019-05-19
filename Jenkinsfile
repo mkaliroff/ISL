@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Run Tests'){
           steps{
-               sh "HomeControllerTests"
+               sh "dotnet test"
                 
           }
     }
