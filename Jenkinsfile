@@ -23,6 +23,7 @@ pipeline {
     stage('Run Tests'){
           steps{
                sh "dotnet test"
+              junit "/*/MVC5_projTests/Controllers/HomeControllerTests.cs"
           }
     }
 }
