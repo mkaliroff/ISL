@@ -1,6 +1,6 @@
 pipeline {
     //Use the following docker image to run your dotnet app.
-    agent { docker { image 'mcr.microsoft.com/dotnet/framework/sdk:4.8' } }
+    agent { docker { image 'mcr.microsoft.com/dotnet/framework/samples:dotnetapp' } }
     environment {HOME = '/tmp'} 
     stages {
     // Get some code from a GitHub repository
