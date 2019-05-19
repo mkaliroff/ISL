@@ -1,6 +1,7 @@
 pipeline {
     //Use the following docker image to run your dotnet app.
-    agent { docker { image 'aeroplan/dotnet-preview4' } }
+    agent { docker { image 'mcr.microsoft.com/dotnet/core/samples
+' } }
     environment {HOME = '/tmp'} 
     stages {
     // Get some code from a GitHub repository
