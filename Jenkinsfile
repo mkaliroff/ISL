@@ -17,15 +17,25 @@ pipeline {
     
    stage('Build'){
           steps{
-              echo "First Build"
                sh "dotnet build"
                }
     }
     stage('Run Tests'){
           steps{
-               sh "dotnet test"
-              junit "/*/MVC5_projTests/Controllers/HomeControllerTests.cs"
+               sh "HomeControllerTests.cs"
+                
           }
     }
-}
+    }
+  post {
+    always {
+      step ([$class: 'MSTestPublisher', testResultsFile:"**/TestResults/UnitTests.trx", failOnError: true, keepLongStdio: true])
+    }
+  }
+  tools {
+    msbuild '.NET Core 2.2.103'
+  }
+  environment {
+    ASPNETCORE_ENVIRONMENT = 'Production'
+  }
 }
