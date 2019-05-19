@@ -13,19 +13,19 @@ pipeline {
     stage('Dotnet Restore'){
         steps{
         //sh "restore nugets C:/Program Files (x86)/Jenkins/tools/nuget/NuGet.exe"
-        sh "dotnet restore DeliverySite/DeliverySite/DeliverySite.csproj"
+        sh "dotnet restore"
         }
     }
     
     stage('Build'){
           steps{
-              sh "dotnet build DeliverySite/DeliverySite/DeliverySite.csproj"
+              sh "dotnet build"
            }
     }
     
     stage('Run Tests'){
           steps{
-               sh "dotnet test DeliverySite/DeliverySite.sln"
+               sh "dotnet test"
           }
     }
 }
