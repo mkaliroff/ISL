@@ -10,49 +10,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.6/slick-theme.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.6/slick.min.js"></script>
 
-<style type="text/css">
-    html, body {
-        margin: 0;
-        padding: 0;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .slider {
-        width: 80%;
-        margin: 200px 100px;
-    }
-
-    .slick-slide {
-        margin: 0px 20px;
-    }
-
-        .slick-slide img {
-            width: 100%;
-        }
-
-    .slick-prev:before,
-    .slick-next:before {
-        color: black;
-    }
 
 
-    .slick-slide {
-        transition: all ease-in-out .3s;
-        opacity: .2;
-    }
 
-    .slick-active {
-        opacity: .5;
-    }
+<!-- Main Stylesheet File -->
+<link href="/css/style.css" rel="stylesheet">
 
-    .slick-current {
-        opacity: 1;
-    }
-</style>
+
 <body>
+    <div id="home" class="intro route bg-image" style="background-image: url(/img/intro.jpg)">
+        <div class="overlay-itro"></div>
+        <div class="intro-content display-table">
+            <div class="table-cell">
+                <div class="container">
+                    <!--<p class="display-6 color-d">Hello, world!</p>-->
+                    <h1 class="intro-title mb-4">I am Human being</h1>
+                    <p class="intro-subtitle"><span class="text-slider-items">CEO DevFolio,Web Developer,Web Designer,Frontend Developer,Graphic Designer</span><strong class="text-slider"></strong></p>
+                    <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
     <br /><br /><br /><br /><br /><br /><br />
     <button id='btnGiveCommand'>Give Command!</button>
     <br><br>
@@ -67,42 +45,44 @@
     <br>
     <input id='chkNick' type="checkbox"> Nick Fury
 
-    <script>
-        var message = document.querySelector('#message');
-        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-        var grammar = '#JSGF V1.0;'
-        var recognition = new SpeechRecognition();
-        var speechRecognitionList = new SpeechGrammarList();
-        speechRecognitionList.addFromString(grammar, 1);
-        recognition.grammars = speechRecognitionList;
-        recognition.lang = 'en-US';
-        recognition.interimResults = false;
-        recognition.onresult = function (event) {
-            var last = event.results.length - 1;
-            var command = event.results[last][0].transcript;
-            message.textContent = 'Voice Input: ' + command + '.';
-            if (command.toLowerCase() === 'select steve') {
-                document.querySelector('#chkSteve').checked = true;
-            }
-            else if (command.toLowerCase() === 'tony') {
-                document.querySelector('#chkTony').click();
-            }
-            else if (command.toLowerCase() === 'select bruce') {
-                document.querySelector('#chkBruce').checked = true;
-            }
-            else if (command.toLowerCase() === 'select nick') {
-                document.querySelector('#chkNick').checked = true;
-            }
-        };
-        recognition.onspeechend = function () {
-            recognition.stop();
-        };
-        recognition.onerror = function (event) {
-            message.textContent = 'Error occurred in recognition: ' + event.error;
-        }
-        document.querySelector('#btnGiveCommand').addEventListener('click', function () {
-            recognition.start();
-        });
-    </script>
+
 </body>
+
+<script>
+    var message = document.querySelector('#message');
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var grammar = '#JSGF V1.0;'
+    var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.onresult = function (event) {
+        var last = event.results.length - 1;
+        var command = event.results[last][0].transcript;
+        message.textContent = 'Voice Input: ' + command + '.';
+        if (command.toLowerCase() === 'select steve') {
+            document.querySelector('#chkSteve').checked = true;
+        }
+        else if (command.toLowerCase() === 'tony') {
+            document.querySelector('#chkTony').click();
+        }
+        else if (command.toLowerCase() === 'select bruce') {
+            document.querySelector('#chkBruce').checked = true;
+        }
+        else if (command.toLowerCase() === 'select nick') {
+            document.querySelector('#chkNick').checked = true;
+        }
+    };
+    recognition.onspeechend = function () {
+        recognition.stop();
+    };
+    recognition.onerror = function (event) {
+        message.textContent = 'Error occurred in recognition: ' + event.error;
+    }
+    document.querySelector('#btnGiveCommand').addEventListener('click', function () {
+        recognition.start();
+    });
+</script>

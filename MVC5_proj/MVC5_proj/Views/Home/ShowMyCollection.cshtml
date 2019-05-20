@@ -1,0 +1,181 @@
+﻿@using MVC5_proj.Dal;
+@using MVC5_proj.Models;
+@using System.Collections.Generic;
+@using System.Linq;
+
+@{
+    ViewBag.Title = "ShowMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    UserDal dal = new UserDal();
+    List<Language> objlan = dal.languages.ToList<Language>();
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br /><br /><br /><br />
+<h1>My Collection</h1>
+<form id="contact" action="/User/Share" method="post">
+    <div class="row">
+        <div class="col-xs-3">
+            <fieldset>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="ID" name="word" class="form-control input-lg" placeholder="Enter Word" required>
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="text" name="link" class="form-control input-lg" placeholder="Enter Link" required>
+                        <span class="passwordIcon input-group-addon"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                <input id="SubmitDescrip" type="submit" value="Send" />
+            </div>
+            <br />
+            <span class="label label-success" style="font-size:large;">@TempData["yes"]</span>
+            <span class="label label-danger" style="font-size:large;">@TempData["no"]</span>
+        </div>
+    </div>
+</form>
+
+
+<br />
+
+<h2>Words Collection</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>Word</th>
+        <th>
+            Email <span class="glyphicon glyphicon-envelope"></span>
+        </th>
+        <th>
+            WhatApp <i class="fa fa-whatsapp" style="font-size:15px"></i>
+        </th>
+        <th>
+            Instgram <i class="fa fa-twitter" style="font-size:15px"></i>
+        </th>
+        <th>Twitter <i class="fa fa-instagram" style="font-size:15px"></i></th>
+        <th>
+            Facebook <i class="fa fa-facebook-square" style="font-size:15px"></i>
+        </th>
+
+    </tr>
+    <tbody>
+        @foreach (var row in objlan)
+        {
+            if (row.word.Length > 1)
+            {
+                <tr>
+                    <td><a href="@row.link">@row.word</a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email it</a></td>
+                    <td><a href="https://web.whatsapp.com/">Text it</a></td>
+                    <td><a href="https://www.instagram.com/?hl=en">Share it</a></td>
+                    <td><a href="https://mobile.twitter.com/i/guest">Twitt it</a></td>
+                    <td><a href="https://www.facebook.com/">Post it</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<br /><br />
+
+<h2>Alphabet Collection</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Letter</th>
+        <th>
+            Email <span class="glyphicon glyphicon-envelope"></span>
+        </th>
+        <th>
+            WhatApp <i class="fa fa-whatsapp" style="font-size:15px"></i>
+        </th>
+        <th>
+            Instgram <i class="fa fa-twitter" style="font-size:15px"></i>
+        </th>
+        <th>Twitter <i class="fa fa-instagram" style="font-size:15px"></i></th>
+        <th>
+            Facebook <i class="fa fa-facebook-square" style="font-size:15px"></i>
+        </th>
+
+    </tr>
+    <tbody>
+        @foreach (var row in objlan)
+        {
+            if (row.word.Length == 1)
+            {
+                <tr>
+                    <td><a href="@row.link">@row.word</a></td>
+                    <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email it</a></td>
+                    <td><a href="https://web.whatsapp.com/">Text it</a></td>
+                    <td><a href="https://www.instagram.com/?hl=en">Share it</a></td>
+                    <td><a href="https://mobile.twitter.com/i/guest">Twitt it</a></td>
+                    <td><a href="https://www.facebook.com/">Post it</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<br /><br /><br /><br />
+
+<body>
+
+    <button id='btnGiveCommand'>Give Command!</button>
+    <br><br>
+    <span id='message'></span>
+    <br><br>
+
+    <input id='chkSteve' type="checkbox"> Steve Rogers
+    <br>
+    <a id='chkTony' href="https://www.purefandom.com/wp-content/uploads/2017/03/tonystarkfunny.jpg"> Tony Stark</a>
+    <br>
+    <input id='chkBruce' type="checkbox"> Bruce Banner
+    <br>
+    <input id='chkNick' type="checkbox"> Nick Fury
+
+    <script>
+        var message = document.querySelector('#message');
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+        var grammar = '#JSGF V1.0;'
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.onresult = function (event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            message.textContent = 'Voice Input: ' + command + '.';
+            if (command.toLowerCase() === 'select steve') {
+                document.querySelector('#chkSteve').checked = true;
+            }
+            else if (command.toLowerCase() === 'tony') {
+                document.querySelector('#chkTony').click();
+            }
+            else if (command.toLowerCase() === 'select bruce') {
+                document.querySelector('#chkBruce').checked = true;
+            }
+            else if (command.toLowerCase() === 'select nick') {
+                document.querySelector('#chkNick').checked = true;
+            }
+        };
+        recognition.onspeechend = function () {
+            recognition.stop();
+        };
+        recognition.onerror = function (event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+        document.querySelector('#btnGiveCommand').addEventListener('click', function () {
+            recognition.start();
+        });
+    </script>
+</body>

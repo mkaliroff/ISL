@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<style>
+    .nav_msg {
+        color: white;
+        padding-top: 4px;
+        font-size: large;
+        border: yellow;
+        padding: 6px;
+        /* box-sizing: border-box; */
+        padding-right: 20px;
+        //font-weight: bold;
+        font-style: oblique;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @if (Session["admin"] != null && Session["admin"].Equals("Hello Admin"))
+            {
+                @Html.ActionLink("Admin Panel", "ShowAdminPanel", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            }
+            else
+            {
+                @Html.ActionLink("ISL", "ShowHomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            }
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <img src="/img/hub.png" />
+                <ul class="nav navbar-nav mr-auto">
+                    <li>@Html.ActionLink("About", "ShowAbout", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "ShowContact", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("TestDB", "ShowMyTestDB", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("[Login", "Login", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("/", "ShowHomePage", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Register]", "Register", "Home", null, new { @class = "nav-link" })</li>
+                </ul>
+                @if (Session["admin"] != null && Session["admin"].Equals("Hello Admin"))
+                {
+                    <div class="pull-right nav_msg">@Session["Admin"]</div>
+
+                }
+                else
+                {
+                    <div id="navmsg" class="pull-right nav_msg">@Session["user"]</div>
+                }
+                <div class="dropdown show">
+                    <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/Home/ShowHomePage">Home</a>
+                        <a class="dropdown-item" href="/Home/MyProfile">Profile</a>
+                        <a class="dropdown-item" href="/Home/ShowMyCollection">My Collection</a>
+                        <a class="dropdown-item" href="/User/Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

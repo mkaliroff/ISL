@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MVC5_proj.ModelView.UserViewModel
+
+<br /><br />
+
+<h2>Log In</h2>
+<br />
+<form id="login" action="/User/SignIn" method="post">
+    <div class="row">
+        <div class="col-xs-3">
+            <fieldset>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="number" id="ID" name="ID" class="form-control input-lg" placeholder="Enter ID">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" id="password" name="Password" class="form-control input-lg" placeholder="Enter Password">
+                        <span class="passwordIcon input-group-addon"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                <input id="Submit2" type="submit" value="Sign in" />
+            </div>
+            <span class="label label-danger">@TempData["noSignIn"]</span>
+        </div>
+    </div>
+</form>
+
+

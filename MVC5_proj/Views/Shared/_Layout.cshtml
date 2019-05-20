@@ -6,6 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+
 </head>
 <style>
     .nav_msg {
@@ -20,68 +24,69 @@
         font-style: oblique;
     }
 </style>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+<body style="background-color:black;">
+    <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand js-scroll" href="#page-top">DevFolio</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+                    aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-            @if (Session["admin"] != null && Session["admin"].Equals("Hello Admin"))
-            {
-                @Html.ActionLink("Admin Panel", "ShowAdminPanel", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-            }
-            else
-            {
-                @Html.ActionLink("ISL", "ShowHomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            }
-            <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <img src="/img/hub.png" />
-                <ul class="nav navbar-nav mr-auto">
-                    <li>@Html.ActionLink("About", "ShowAbout", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "ShowContact", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("TestDB", "ShowMyTestDB", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("[Login", "Login", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("/", "ShowHomePage", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Register]", "Register", "Home", null, new { @class = "nav-link" })</li>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="#service">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="#work">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="#contact">Contact</a>
+                    </li>
                 </ul>
-                @if (Session["admin"] != null && Session["admin"].Equals("Hello Admin"))
-                {
-                    <div class="pull-right nav_msg">@Session["Admin"]</div>
-
-                }
-                else
-                {
-                    <div id="navmsg" class="pull-right nav_msg">@Session["user"]</div>
-                }
-                <div class="dropdown show">
-                    <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Menu
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/Home/ShowHomePage">Home</a>
-                        <a class="dropdown-item" href="/Home/MyProfile">Profile</a>
-                        <a class="dropdown-item" href="/Home/ShowMyCollection">My Collection</a>
-                        <a class="dropdown-item" href="/User/Logout">Logout</a>
-                    </div>
-                </div>
             </div>
         </div>
     </nav>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="dropdown show">
+            <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/Home/ShowHomePage">Home</a>
+                <a class="dropdown-item" href="/Home/MyProfile">Profile</a>
+                <a class="dropdown-item" href="/Home/ShowMyCollection">My Collection</a>
+                <a class="dropdown-item" href="/User/Logout">Logout</a>
+            </div>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
+
+
 </html>
 
 
